@@ -8,10 +8,11 @@ lib/
 pyvenv.cfg
 share/
 
-# xmls 
+# xmls y pdfs
 boe/xmls/
 boe/xmls2023/
 boe/xml_little/
+boe/pdfs
 # Application specific
 Ollama.app/
 
@@ -34,3 +35,5 @@ books/
 # Excluir archivos grandes
 boe/boe.ipynb
 starter_tutorial_local/Ollama-darwin.zip
+
+understanding/structured_data_extraction/openai_key.txt
