@@ -1,0 +1,36 @@
+# macOS system files
+.DS_Store
+
+# Python virtual environments
+bin/
+include/
+lib/
+pyvenv.cfg
+share/
+
+# xmls 
+boe/xmls/
+boe/xmls2023/
+boe/xml_little/
+# Application specific
+Ollama.app/
+
+# Compiled Python files
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Books
+books/
+# Custom ignores (add directories or files you don't want to track with Git)
+# e.g., specific project directories or files, temporary files, private data, etc.
+# boe/
+# hugginface_llm/
+# starter_tutorial_local/
+# understanding/
+
+# Excluir archivos grandes
+boe/boe.ipynb
+starter_tutorial_local/Ollama-darwin.zip
