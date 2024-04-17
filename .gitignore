@@ -25,6 +25,8 @@ __pycache__/
 
 # Books
 books/
+
+pdfs_10/
 # Custom ignores (add directories or files you don't want to track with Git)
 # e.g., specific project directories or files, temporary files, private data, etc.
 # boe/
@@ -37,3 +39,5 @@ boe/boe.ipynb
 starter_tutorial_local/Ollama-darwin.zip
 
 understanding/structured_data_extraction/openai_key.txt
+
+understanding/structured_data_extraction/embeddings
