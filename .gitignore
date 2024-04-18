@@ -38,6 +38,7 @@ pdfs_10/
 boe/boe.ipynb
 starter_tutorial_local/Ollama-darwin.zip
 
-understanding/structured_data_extraction/openai_key.txt
 
 understanding/structured_data_extraction/embeddings
+
+understanding/structured_data_extraction/embeddings_langchain
