@@ -37,3 +37,38 @@ It divides the text from a pdf into chunks of a certain size and with some overl
 ## Utility Methods
 - get_part: Allows retrieval of a specific chunk by its index, providing direct access to individual DocumentPart instances.
 - str: Provides a concatenated string representation of all the document parts, showing each part's content when the PDFReader instance is printed.
+
+# data_extractors.py
+We can extract company names, amount and currency of a contract in BOE.
+
+## Pydantic Models
+- CompanyData Class
+    - Purpose: Defines the schema to extract company name.
+- FinancialData Class
+    - Purpose: Defines the schema for financial details extracted from texts.
+    - Attributes:
+        - amount: Represents the numerical amount of the contract.
+        - currency
+## DataExtractor Class
+Manages the extraction of specific types of data from text using ollama models. It uses Pydantic for data validation.
+
+- Attributes:
+    - text: The text from which data needs to be extracted. It must be provided at initialization or before calling the extraction methods.
+    - client: An instance of the API client configured to communicate with an AI service. This is key to use the function calling tool with ollama models.
+    - company_name: Caches the company name once it is extracted.
+    - amount: Caches the contract amount once it is extracted.
+    - currency: Caches the currency of the contract once it is extracted.
+- Initialization: During initialization, the __init__ method sets up the API client with the necessary credentials and the base URL. It also initializes the attributes for storing extracted data.
+- Methods
+    - extract_company
+        - Purpose: Extracts the name of a company from the stored text.
+        - Procedure:
+            1. Constructs a content string that prompts the AI model to identify and extract the company name.
+            2. Makes an API call to the AI service using the model specified (llama3), passing the constructed content as input.
+            3. Receives the response and updates the company_name attribute with the extracted data.
+    - extract_amount
+        - Purpose: Extracts the financial amount and its corresponding currency from the stored text.
+        - Procedure:
+            1. Constructs a content string that prompts the AI model to identify and extract the financial details including the amount and currency.
+            2. Makes an API call to the AI service using the same model, passing the constructed content as input.
+            3. Receives the response and updates the amount and currency attributes with the extracted data.

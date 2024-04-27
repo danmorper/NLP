@@ -11,6 +11,7 @@ class DocumentPart:
 class PDFReader:
     def __init__(self, pdf_path, chunk_size, overlap):
         self.pdf_path = pdf_path
+        self.filename = pdf_path.split("/")[-1]
         self.document_parts = []
         self.chunk_size = chunk_size
         self.overlap = overlap
@@ -31,13 +32,13 @@ class PDFReader:
                     end_index = self.chunk_size
                     if self.overlap:
                         end_index -= self.overlap
-                    self.document_parts.append(DocumentPart(text=text_buffer[:end_index], metadata={"page": page_number + 1}))
+                    self.document_parts.append(DocumentPart(text=text_buffer[:end_index], metadata={"page": page_number + 1, "filename": self.filename}))
                     text_buffer = text_buffer[end_index:] if not self.overlap else text_buffer[end_index - self.overlap:]
                 page_number += 1
             
             # Handle the last chunk that might be smaller than chunk_size
             if text_buffer:
-                self.document_parts.append(DocumentPart(text=text_buffer, metadata={"page": page_number}))
+                self.document_parts.append(DocumentPart(text=text_buffer, metadata={"page": page_number, "filename": self.filename}))
 
     def get_part(self, part_number):
         if 0 < part_number <= len(self.document_parts):
