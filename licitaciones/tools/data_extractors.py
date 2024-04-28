@@ -42,6 +42,7 @@ class DataExtractor:
         self.amount = None
         self.currency = None
         self.adjudicadora = None
+        self.expediente = None
         self.tipo = None
         self.tramitacion = None
         self.procedimiento = None
