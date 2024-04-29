@@ -23,7 +23,9 @@ class TramitacionData(BaseModel):
 
 # Define the DataExtractor class
 class DataExtractor:
-    def __init__(self, api_key: str ='ollama', base_url="http://localhost:11434/v1", text_company: str = None, text_amount: str = None, text_adjudicadora: str = None, text_tipo: str = None, text_tramitacion: str = None):
+    def __init__(self, model = "phi3",api_key: str ='ollama', base_url="http://localhost:11434/v1", text_company: str = None, text_amount: str = None, text_adjudicadora: str = None, text_tipo: str = None, text_tramitacion: str = None):
+        self.model = model
+
         self.text_company = text_company
         self.text_amount = text_amount
         self.text_adjudicadora = text_adjudicadora
@@ -48,15 +50,30 @@ class DataExtractor:
         self.procedimiento = None
 
         if self.text_company is not None:
-            self.extract_company()
+            try:
+                self.extract_company()
+            except:
+                print(f"Error extracting company name")
         if self.text_amount is not None:
-            self.extract_amount()
+            try:
+                self.extract_amount()
+            except:
+                print(f"Error extracting amount")
         if self.text_adjudicadora is not None:
-            self.extract_adjudicadora()
+            try:
+                self.extract_adjudicadora()
+            except:
+                print(f"Error extracting adjudicadora")
         if self.text_tipo is not None:
-            self.extract_tipo()
+            try:
+                self.extract_tipo()
+            except:
+                print(f"Error extracting tipo")
         if self.text_tramitacion is not None:
-            self.extract_tramitacion()
+            try:
+                self.extract_tramitacion()
+            except:
+                print(f"Error extracting tramitacion")
 
     def extract_company(self):
         content = f"""
@@ -64,7 +81,7 @@ class DataExtractor:
         {self.text_company}
         """
         response = self.client.chat.completions.create(
-            model="llama3",
+            model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=CompanyData,
             max_retries=10
@@ -78,7 +95,7 @@ class DataExtractor:
         {self.text_amount}
         """
         response = self.client.chat.completions.create(
-            model="llama3",
+            model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=FinancialData,
             max_retries=10
@@ -92,13 +109,13 @@ class DataExtractor:
         {self.text_adjudicadora}
         """
         response = self.client.chat.completions.create(
-            model="llama3",
+            model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=AdjudicadoraData,
             max_retries=10
         )
         self.adjudicadora = response.adjudicadora
-        self.expediente = response.expediente
+        #self.expediente = response.expediente
 
     def extract_tipo(self):
         content = f"""
@@ -108,7 +125,7 @@ class DataExtractor:
         {self.text_tipo}
         """
         response = self.client.chat.completions.create(
-            model="llama3",
+            model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=TipoData,
             max_retries=10
@@ -124,7 +141,7 @@ class DataExtractor:
         {self.text_tramitacion}
         """
         response = self.client.chat.completions.create(
-            model="llama3",
+            model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=TramitacionData,
             max_retries=10

@@ -3,7 +3,8 @@ import ollama
 
 # De esta clase hacer una subclase para hacerlo mas especifico de mi caso
 class EmbeddingsDB:
-    def __init__(self, pdf_reader=None):
+    def __init__(self, pdf_reader=None, model: str = "phi3"):
+        self.model = model
         self.pdf_reader = pdf_reader
         self.client = chromadb.Client()
         if self.pdf_reader:
@@ -30,7 +31,7 @@ class EmbeddingsDB:
                 )
     def get_embedding(self, text):
         """Generate an embedding for the provided text using the 'llama3' model."""
-        embedding_dict = ollama.embeddings(model='llama3', prompt=text)
+        embedding_dict = ollama.embeddings(model=self.model, prompt=text)
         vector = embedding_dict['embedding']
         return vector
 
@@ -67,7 +68,7 @@ class SimilaritySearch(EmbeddingsDB):
         """Search for documents similar to the given text. Then get the ids of the documents and return the text using pdf_reader.get_part(id)."""
         results = self.query_documents(query_text, n_results=n_results)
 
-        print(results)
+        print(f"{query_text}--->{results}")
         # Get ids of the documents
         ids = [int(id) for id in results['ids'][0]]
 
@@ -84,7 +85,7 @@ class Search(SimilaritySearch):
     def __init__(self, pdf_reader=None):
         super().__init__(pdf_reader=pdf_reader)
         self.query_company = "Company which won the contract"
-        self.query_amount = 'total contract amount "Valor estimado del contrato"'
+        self.query_amount = 'Valor estimado del contrato'
         self.query_adjudicadora = 'Contracting Authority referred as "Organismo" or "Entidad adjudicadora"' # I do not write name because it is closer to the name of a person, for example Isabel, than to the name of an institution
         self.query_tipo = 'type of contract "Objetivo de contrato", "Tipo"'
         self.query_tramitacion = 'type of procedure "Procedimiento", "Tramitación"'
