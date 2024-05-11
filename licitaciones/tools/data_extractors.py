@@ -1,14 +1,21 @@
 import instructor
 from openai import OpenAI
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, validator
 
 # Define the Pydantic models for the data extracted
 class CompanyData(BaseModel):
     company: str = Field(..., title="Company", description="The name of the company involved in the contract")
 
 class FinancialData(BaseModel):
-    amount: float = Field(..., title="Amount", description="The total amount of the contract")
-    currency: str = Field(..., title="Currency", description="The currency of the contract amount")
+    amount: float = Field(
+        default=...,
+        title="Amount",
+        description="The total amount of the contract")
+    currency: str = Field(
+        default=...,
+        title="Currency",
+        description="The currency of the contract amount"
+    )
 
 class AdjudicadoraData(BaseModel):
     adjudicadora: str = Field(..., title="Adjudicadora", description="The name of the Contracting Authority")
@@ -23,7 +30,7 @@ class TramitacionData(BaseModel):
 
 # Define the DataExtractor class
 class DataExtractor:
-    def __init__(self, model = "phi3",api_key: str ='ollama', base_url="http://localhost:11434/v1", text_company: str = None, text_amount: str = None, text_adjudicadora: str = None, text_tipo: str = None, text_tramitacion: str = None):
+    def __init__(self, model = "llama3",api_key: str ='ollama', base_url="http://localhost:11434/v1", text_company: str = None, text_amount: str = None, text_adjudicadora: str = None, text_tipo: str = None, text_tramitacion: str = None):
         self.model = model
 
         self.text_company = text_company
@@ -49,27 +56,35 @@ class DataExtractor:
         self.tramitacion = None
         self.procedimiento = None
 
+        if self.text_amount is not None:
+            print("Extracting amount")
+            try:
+
+                self.extract_amount()
+            except:
+                print(f"Error extracting amount")
+                
         if self.text_company is not None:
+            print("Extracting company name")
             try:
                 self.extract_company()
             except:
                 print(f"Error extracting company name")
-        if self.text_amount is not None:
-            try:
-                self.extract_amount()
-            except:
-                print(f"Error extracting amount")
+        
         if self.text_adjudicadora is not None:
+            print("Extracting adjudicadora")
             try:
                 self.extract_adjudicadora()
             except:
                 print(f"Error extracting adjudicadora")
         if self.text_tipo is not None:
+            print("Extracting tipo")
             try:
                 self.extract_tipo()
             except:
                 print(f"Error extracting tipo")
         if self.text_tramitacion is not None:
+            print("Extracting tramitacion")
             try:
                 self.extract_tramitacion()
             except:
@@ -77,28 +92,38 @@ class DataExtractor:
 
     def extract_company(self):
         content = f"""
-        Extract the name of the company from the following text:
-        {self.text_company}
+        Extract the name of the 'Contratista' from the following text:
+        {self.text_company}.
+
+        For example, if the text is
+
+        c) Contratista: LIFE CARE S.L.d) Importe o canon de adjudicación: Importe neto: 402.347,60 euros
+
+        The company name is LIFE CARE S.L.
         """
+        print(content)
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=CompanyData,
-            max_retries=10
+            max_retries=3
         )
         self.company_name = response.company
         
 
     def extract_amount(self):
         content = f"""
-        Extract the total contract amount and its currency from the following text, normally it is referred to as "Valor estimado del contrato":
+        Extract the total contract amount and its currency from the following text, normally it is referred to as "Importe total":
         {self.text_amount}
+
+        Output should follow python float number, for example with "Importe total: 302.000,00 euros." the number would be 302000.00
         """
+        print(content)
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=FinancialData,
-            max_retries=10
+            max_retries=3
         )
         self.amount = response.amount
         self.currency = response.currency
@@ -108,11 +133,12 @@ class DataExtractor:
         Extract the name of the Contracting Authority from the text. Normally it is referred to as "Organismo" or "Entidad adjudicadora". Extract also "Numero de expediente" if available. IT IS NOT A PERSON, IT IS AN INSTITUTION OF PUBLIC ADMINISTRATION. Example text:
         {self.text_adjudicadora}
         """
+        print(content)
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=AdjudicadoraData,
-            max_retries=10
+            max_retries=3
         )
         self.adjudicadora = response.adjudicadora
         #self.expediente = response.expediente
@@ -124,11 +150,12 @@ class DataExtractor:
         Example text:
         {self.text_tipo}
         """
+        print(content)
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=TipoData,
-            max_retries=10
+            max_retries=3
         )
         self.tipo = response.tipo
     
@@ -140,11 +167,12 @@ class DataExtractor:
         Example text:
         {self.text_tramitacion}
         """
+        print(content)
         response = self.client.chat.completions.create(
             model=self.model,
             messages=[{"role": "user", "content": content}],
             response_model=TramitacionData,
-            max_retries=10
+            max_retries=3
         )
         self.tramitacion = response.tramitacion
         self.procedimiento = response.procedimiento
@@ -160,3 +188,4 @@ class DataExtractor:
         Procedimiento: {self.procedimiento}
         """
         return printed_text
+    

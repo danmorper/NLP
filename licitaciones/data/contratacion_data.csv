@@ -1,20 +1,66 @@
 pdf,company,amount,currency,adjudicadora,tipo,tramitacion,procedimiento
-BOE-B-2017-70670.pdf,UTE OESIA PGR ASOCIADOS,None,None,None,Servicios,None,None
-BOE-B-2015-37752.pdf,Extremadura,None,None,None,Contrato Mixto,Ordinaria,Abierto
-BOE-B-2017-24396.pdf,Always School of Languages,None,None,None,Contrato de obras,None,None
-BOE-B-2016-67178.pdf,Ayuntamiento de Getafe,4218576.92,euros,None,Contrato de Ayuda a Domicilio,None,None
-BOE-B-2015-34448.pdf,Clece S.A.,None,None,None,Contrato de obras,Ordinaria,Abierto
-BOE-B-2015-20629.pdf,Presidencia del Fondo Español de Garantía Agraria,4268880.0,euros,None,Contrato de obras,None,None
-BOE-B-2019-12177.pdf,Iturri S.A.; Industrias Hidráulicas Pardo S.L. y El Corte Inglés S.A.,0.0,,Director Gerente del Servicio Andaluz de Salud,None,Ordinaria,Abierto
-BOE-B-2016-400.pdf,Oesía Networks S.L.,1386810.24,EUR,None,Contrato Mixto,None,None
-BOE-B-2017-55780.pdf,Junta de Contratación del Ministerio de Economía y Competitividad,None,None,IBERMÁTICA S.A,Contrato de obras,Ordinaria,Abierto
-BOE-B-2017-69508.pdf,Comunidad Autónoma de Euskadi,300000.0,euros,Comunidad Autónoma de Euskadi,Contrato de Servicios,None,None
-BOE-B-2015-31534.pdf,Comunidad Valenciana,None,None,None,Servicios TI: consultoría, desarrollo,None,None
-BOE-B-2018-1414.pdf,UNIVERSIDADES,None,None,None,Servicios,None,None
-BOE-B-2015-31036.pdf,LIFE TECHNOLOGIES S.A.,None,None,None,Contrato menor,Ordinaria,Negociado con publicidad
-BOE-B-2017-76128.pdf,Universitat Politècnica de Catalunya - UPCT,5000000.0,EUR,Unidad de Contratación Administrativa,Contrato de obras,Abierto,Abierto, sujeto a regulación armonizada
-BOE-B-2015-37533.pdf,None,None,None,None,Servicios,None,None
-BOE-B-2018-10367.pdf,Comunidad Autónoma de las Islas Baleares,1355831.81,euros,None,Contrato de Servicios,None,None
-BOE-B-2017-71646.pdf,Azvase S.L.,1211710.0,euros,None,Contrato de servicio,None,None
-BOE-B-2015-30895.pdf,Ministerio de Economía y Competitividad,None,None,None,Servicios,None,None
-BOE-B-2015-29334.pdf,Universidad de Córdoba,174560.65,euros,Universidad de Córdoba,Contrato Mixto,Ordinaria,Abierto
+BOE-B-2017-70670.pdf,UTE OESIA PGR ASOCIADOS,None,None,Agencia Estatal de Investigación,Servicios,Ordinaria,Abierto
+BOE-B-2015-37752.pdf,UTE: Paymacotas Extremadura sl - Getinsa Payma S.L. - Invenio Consultores Ingenieros S.L.,30000000.0,euros,Junta de Extremadura. Consejería de Economía e Infraestructuras,Servicios,Ordinaria,Abierto
+BOE-B-2017-24396.pdf,Always School of Languages,1500000.0,euros,Excmo. Cabildo Insular de Tenerife,Servicio,Ordinaria,Abierto
+BOE-B-2016-67178.pdf,None,2008806.15,euros,Ayuntamiento de Getafe,Administrativo de Servicio,Ordinaria,Abierto
+BOE-B-2015-34448.pdf,None,None,None,Instituto de Mayores y Servicios Sociales,Servicios,Ordinaria,Abierto
+BOE-B-2015-20629.pdf,LEGUMBRES EL MARAGATO S.L. LEGUMBRES LUENGO S.A. y SELECCIÓN DE PRODUCTOS LEONESES S.A.,None,None,None,Contrato de obras,Urgente,Abierto
+BOE-B-2019-12177.pdf,Iturri S.A.; Indústrias Hidráulicas Pardo S.L. y El Corte Inglés S.A.,None,None,Servicio Andaluz de Salud. Servicios Centrales.,Suministros,Ordinaria,Abierto
+BOE-B-2016-400.pdf,None,None,None,Consejería de Agua Agricultura y Medio Ambiente,Servicios,Ordinaria,Abierto varios criterios
+BOE-B-2017-55780.pdf,IBERMÁTICA S.A,4417778.64,euros,Junta de Contratación del Ministerio de Economía y Competitividad,Servicios,Ordinaria,Abierto
+BOE-B-2017-69508.pdf,PKF ATTEST Servicios Empresariales S.L.,None,None,Gobierno Vasco Departamento de Hacienda y Economía,Servicios,Ordinaria,Abierto
+BOE-B-2018-1414.pdf,Ernst & Young S.L.,172546.0,euros,Universidad de Santiago de Compostela,Servicios,Ordinaria,Abierto
+BOE-B-2015-31036.pdf,None,308730.29,euros,Rectorado de la Universidad de Córdoba,Suministros,Ordinaria,Abierto
+BOE-B-2015-37533.pdf,None,None,None,Servicio de Ocupación de Cataluña,Servicios,Ordinaria,Abierto
+BOE-B-2018-10367.pdf,Servisar Servicios Sociales S.L.,1355831.81,euros,Consejería de Servicios Sociales y Cooperación,Servicios,Ordinaria,Abierto
+BOE-B-2017-71646.pdf,None,1211710.0,euros,Pleno del Ayuntamiento de San Martín del Rey Aurelio,None,Ordinaria,Abierto
+BOE-B-2015-30895.pdf,OESIA NETWORKS S.L.,370000.0,euros,Junta de Contratación del Ministerio de Economía y Competitividad,Servicios,Ordinaria,Abierto
+BOE-B-2015-29334.pdf,BIO-RAD Laboratories S.A.,174560.65,euros,Rectorado de la Universidad de Córdoba,Suministros,Ordinaria,Abierto
+BOE-B-2015-29863.pdf,Instrumentación Específica de Materiales S.A.,483393.79,euros,None,Suministros,Ordinaria,Abierto
+BOE-B-2015-31169.pdf,None,None,None,None,Servicios,Ordinaria,Abierto
+BOE-B-2015-32930.pdf,Cobra Instalaciones y Servicios S.A.,565811.04,euros,Intendente de Rota,Obras,Urgente,Abierto
+BOE-B-2017-59654.pdf,Ute formada por Clece S.A - Zaintzen S.A.U. (UTE SAD BARAKALDO),4524000.0,euros,Ayuntamiento de Barakaldo,Servicios,Ordinaria,Abierto
+BOE-B-2022-37402.pdf,None,None,None,None,None,None,None
+BOE-B-2016-1087.pdf,None,561440.0,euros,Servicio Andaluz de Salud. Servicios Centrales,None,Ordinaria,Abierto
+BOE-B-2015-19218.pdf,Fempsa Camp S.L.,None,None,None,Servicio,Ordinaria,Abierto
+BOE-B-2016-9745.pdf,Sanivida S.L.,520000.0,euros,None,Administrativo Especial,Ordinaria,Abierto
+BOE-B-2016-2374.pdf,Vinfra S.A.,122993.55,euros,Universidad de Sevilla,Contrato de obras,Ordinaria,Abierto
+BOE-B-2017-56377.pdf,None,175111.2,euros,Junta de Contratación de la Secretaría de Estado de Cultura,Servicios,Ordinaria,Abierto
+BOE-B-2018-20316.pdf,Newlink Education S.L.,2899125.0,€,Excmo. Cabildo Insular de Tenerife,Contrato de Servicios,None,None
+BOE-B-2016-15156.pdf,DELOITTE ADVISORY S.L.,1865578.0,euros,Junta de Contratación del Ministerio de Industria Energía y Turismo,Servicios,Ordinaria,Abierto
+BOE-B-2015-38437.pdf,COMPAÑIA EUROPEA DE SEGUROS S.A.,139440.0,euros,Junta de Contratación del Ministerio de Economía y Competitividad,Servicios,Ordinaria,Abierto
+BOE-B-2018-4305.pdf,LIFE CARE S.L.,18550000.0,euros,None,Servicios,Ordinaria,Abierto con varios criterios de adjudicación
+BOE-B-2015-27516.pdf,BRUKER ESPAÑOLA S.A.,365420.0,euros,Rectorado de la Universidad de Córdoba,Suministros,Ordinaria,Abierto
+BOE-B-2018-36424.pdf,Caser Residencial S.A.U.,4718300.0,euros,Ayuntamiento de Guadalajara,Servicios,Ordinaria,Abierto
+BOE-B-2016-7412.pdf,None,2000000.0,euros,Ayuntamiento de Fuenlabrada,Servicio,Ordinaria,Abierto
+BOE-B-2017-23096.pdf,Clece S.A.,1720787363.63,euros,Ayuntamiento de Las Palmas de Gran Canaria,Servicio,Ordinaria,Abierto
+BOE-B-2017-66904.pdf,Véase perfil del contratante,None,None,Agencia Pública Andaluza de Educación,Suministro,Ordinaria,Abierto
+BOE-B-2015-25908.pdf,None,236250.0,euros,Gobierno de Aragón Departamento de Agricultura Ganadería y Medio Ambiente,Servicios,Ordinaria,Abierto
+BOE-B-2018-41255.pdf,Sanivida Sociedad Limitada,2000000.0,euros,Ayuntamiento de Fuenlabrada,Contrato de Servicios,Ordinaria,Abierto
+BOE-B-2018-5965.pdf,LIFE CARE S.L.,486840.0,euros,Pleno del Ayuntamiento de Villaviciosa de Córdoba,Servicios,Ordinaria,Abierto
+BOE-B-2018-5030.pdf,Tu Mayor Amigo S.L.,239423.08,€,Junta de Gobierno Local. Ayuntamiento de Pozuelo de Alarcón,Servicios,Ordinaria,Abierto
+BOE-B-2016-2555.pdf,Indra bpo servicios s.l.u,882644.62,euros,Diputación Foral de Álava,Servicios,Ordinaria,Abierto
+BOE-B-2016-56737.pdf,Valoriza Servicios a la Dependencia S.L.,780000.0,euros,Ayuntamiento de Amorebieta-Etxano,Servicios,Ordinaria,Abierto
+BOE-B-2016-308.pdf,FEI Europe BV Sucursal en España,459800.0,euros,Universidad de Sevilla,Suministro,Ordinaria,Abierto
+BOE-B-2015-24193.pdf,IBERMÁTICA S.A,2208890.32,euros,Junta de Contratación del Ministerio de Economía y Competitividad,Servicios,Ordinaria,Abierto
+BOE-B-2015-28025.pdf,MGI AUDICON & PARTNERS S.L.P.,232320.0,euros,Dirección General de Política Universitaria,Servicios,Ordinaria,Abierto
+BOE-B-2016-33989.pdf,Gihemar S.A.,154674.0,euros,GEDESMA,Servicios,Ordinaria,Abierto
+BOE-B-2015-20042.pdf,None,786500.0,euros,Agencia Estatal Consejo Superior de Investigaciones Científicas,Suministro,Ordinaria,Abierto
+BOE-B-2016-875.pdf,None,415119.24,euros,Agencia Pública Andaluza de Educación,Contrato de suministro,Ordinaria,Abierto
+BOE-B-2016-4877.pdf,Creatividad y Tecnología S.A.,203280.0,euros,Agencia Española de Cooperación Internacional para el Desarrollo,Servicios,Ordinaria,Abierto
+BOE-B-2018-41520.pdf,None,None,None,None,Servicis,Ordinaria,Abierto
+BOE-B-2018-11364.pdf,None,3417375.02,euros,None,Servicios,Ordinaria,Abierto
+BOE-B-2016-49299.pdf,METALURGICA PONTESA S.L.,149720.0,euros,Intendente de Ferrol,Obras,Ordinaria,Negociado sin publicidad
+BOE-B-2015-20756.pdf,None,18398840.0,euros,Presidencia del Fondo Español de Garantía Agraria,Administrativo especial,Urgente,Abierto
+BOE-B-2015-30814.pdf,Clece S.A.,5027182.89,euros,Ayuntamiento de Madrid. Área de Gobierno de Equidad Derechos Sociales y Empleo,Gestión de servicios públicos,Urgente,Abierto
+BOE-B-2016-65835.pdf,Novotec Consultores S.A.,None,None,Consejería de Economía Empresas y Empleo,Servicios,Ordinaria,Abierto
+BOE-B-2022-19785.pdf,None,None,None,None,None,None,None
+BOE-B-2015-30546.pdf,ANTONIO MATACHANA S.A.,451230.96,euros,Rectorado de la Universidad de Córdoba,Suministros,Ordinaria,Abierto
+BOE-B-2015-33932.pdf,Telvent Energía S.A.,647785.75,euros,None,Suministro,Ordinaria,Abierto
+BOE-B-2017-2330.pdf,None,2132010.64,euros,Ayuntamiento de Bergondo,Servicios,Ordinaria,Abierto
+BOE-B-2016-1639.pdf,PERKIN ELMER ESPAÑA S.L.,181500.0,euros,Rectorado de la Universidad de Córdoba,Suministros,Ordinaria,Abierto
+BOE-B-2016-961.pdf,MEDICINA DE DIAGNOSTICO Y CONTROL  S.A.U. (MEDYCSA),143260.0,euros,Junta de Contratación del Ministerio de Agricultura Alimentación y Medio Ambiente y Mesa de Contratación de los Servicios Comunes de la Secretaría General de Agricultura y Alimentación y de la Secretaría General de Pesca,Servicios,Ordinaria,Abierto
+BOE-B-2015-18191.pdf,Valoriza Servicios a la Dependencia S.L.,1332450.0,Euros,Junta de Gobierno Local. Ayuntamiento de Pozuelo de Alarcón,Servicios,Urgente,Abierto
+BOE-B-2015-19502.pdf,De Andrés y Artiñano S.L.,268382.44,euros,Instituto para la Reestructuración de la Minería del Carbón y Desarrollo Alternativo de las Comarcas Mineras,Servicios,Ordinaria,Abierto
+BOE-B-2017-61767.pdf,Alma Ata Salud S.L.,434680.96,euros,Ayuntamiento Torre-Pacheco,Servicios,Ordinaria,Abierto
+BOE-B-2018-54173.pdf,None,779861.46,euros,Axencia para a Modernización Tecnolóxica de Galicia,Contrato de Servicios,Ordinaria,Diálogo competitivo

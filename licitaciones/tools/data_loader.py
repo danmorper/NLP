@@ -1,20 +1,20 @@
 # Read pdf
 import PyPDF2
-
+import re
 class DocumentPart:
     def __init__(self, text, metadata):
         self.text = text
         self.metadata = metadata
     def __str__(self):
         # This will return the first 100 characters of text and the metadata page number.
-        return f"Part({self.text}: {self.metadata})"
+        return f"Part[{self.text}: {self.metadata}]"
 class PDFReader:
-    def __init__(self, pdf_path, chunk_size, overlap):
+    def __init__(self, pdf_path):
         self.pdf_path = pdf_path
         self.filename = pdf_path.split("/")[-1]
         self.document_parts = []
-        self.chunk_size = chunk_size
-        self.overlap = overlap
+        # self.chunk_size = chunk_size
+        # self.overlap = overlap
         self._read_pdf()
 
     def _read_pdf(self):
@@ -22,33 +22,54 @@ class PDFReader:
             pdf_reader = PyPDF2.PdfReader(file)
             num_pages = len(pdf_reader.pages)
 
-            text_buffer = ""
-            page_number = 0
-            while page_number < num_pages:
+            full_text = ""
+            for page_number in range(num_pages):
                 page = pdf_reader.pages[page_number]
                 page_content = page.extract_text() or ""
-                text_buffer += page_content
-                while len(text_buffer) >= self.chunk_size:
-                    end_index = self.chunk_size
-                    if self.overlap:
-                        end_index -= self.overlap
-                    self.document_parts.append(DocumentPart(text=text_buffer[:end_index], metadata={"page": page_number + 1, "filename": self.filename}))
-                    text_buffer = text_buffer[end_index:] if not self.overlap else text_buffer[end_index - self.overlap:]
-                page_number += 1
-            
-            # Handle the last chunk that might be smaller than chunk_size
-            if text_buffer:
-                self.document_parts.append(DocumentPart(text=text_buffer, metadata={"page": page_number, "filename": self.filename}))
+                full_text += page_content
+
+            # Divide the text based on the numbered headings
+            parts = re.split(r'(\d+\.\s+[^\n]+:\n)', full_text)
+            if parts and parts[0].strip() == '':
+                parts = parts[1:]  # Remove any leading empty strings from split
+
+            # Remove title and introduction
+            parts = parts[1:]
+            # Join the heading with the following text
+            for i in range(0, len(parts), 2):
+                if i + 1 < len(parts):
+                    parts[i] += parts[i + 1]
+            parts = parts[::2]
+            for part in parts:
+                # Save the previous section before starting a new one
+                self.document_parts.append(DocumentPart(text=part.strip(), metadata={"filename": self.filename}))
+
 
     def get_part(self, part_number):
-        if 0 < part_number <= len(self.document_parts):
-            return self.document_parts[part_number - 1]
+        if 0 <= part_number < len(self.document_parts):
+            return self.document_parts[part_number]
         else:
-            return None
-        
+            print(f"Part number {part_number} is out of range. There are {len(self.document_parts)} parts in the document but part numbers start at 0, so the last part number is {len(self.document_parts) - 1}.")
+    
+
+    def get_certain_parts(self, num: int):
+        num_text = {
+            1: "1. Entidad adjudicadora:",
+            2: "2. Objeto del contrato:",
+            3: "3. Tramitación y procedimiento:",
+            4: "4. Valor estimado del contrato:",
+            5: "5. Presupuesto base de licitación",
+            6: "6. Formalización del contrato:"
+        }
+        for part in self.document_parts:
+            if num_text[num] in part.text:
+                return part.text
     def __str__(self):
         # Create a string representation of all DocumentPart objects in the document
         printed_text = ""
         for part in self.document_parts:
             printed_text += str(part) + "\n"
+            printed_text += "-"*50 + "\n"
         return printed_text
+    
+

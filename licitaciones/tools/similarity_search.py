@@ -3,7 +3,7 @@ import ollama
 
 # De esta clase hacer una subclase para hacerlo mas especifico de mi caso
 class EmbeddingsDB:
-    def __init__(self, pdf_reader=None, model: str = "phi3"):
+    def __init__(self, pdf_reader=None, model: str = "llama3"):
         self.model = model
         self.pdf_reader = pdf_reader
         self.client = chromadb.Client()
@@ -40,7 +40,7 @@ class EmbeddingsDB:
         if not self.pdf_reader:
             raise ValueError("PDF reader is not initialized.")
         
-        for i, part in enumerate(self.pdf_reader.document_parts, start=1):
+        for i, part in enumerate(self.pdf_reader.document_parts, start=0):
             vector = self.get_embedding(part.text)
             self.collection.add(
                 embeddings=[vector],
@@ -64,7 +64,7 @@ class SimilaritySearch(EmbeddingsDB):
         if pdf_reader:
             self.add_documents_to_db()
 
-    def similar_text(self, query_text, n_results=2):
+    def similar_text(self, query_text, n_results=1):
         """Search for documents similar to the given text. Then get the ids of the documents and return the text using pdf_reader.get_part(id)."""
         results = self.query_documents(query_text, n_results=n_results)
 
@@ -75,24 +75,24 @@ class SimilaritySearch(EmbeddingsDB):
         # Get the documents from the PDF reader
         text = ""
         for id in ids:
-            text += self.pdf_reader.get_part(id).text + "\n"
+            text += self.pdf_reader.get_part(id).text
 
-        # Get the number of page
-        pages = set([self.pdf_reader.get_part(id).metadata['page'] for id in ids])
-        return text, pages
+        # # Get the number of page
+        # pages = set([self.pdf_reader.get_part(id).metadata['page'] for id in ids])
+        return text
     
 class Search(SimilaritySearch):
     def __init__(self, pdf_reader=None):
         super().__init__(pdf_reader=pdf_reader)
-        self.query_company = "Company which won the contract"
-        self.query_amount = 'Valor estimado del contrato'
-        self.query_adjudicadora = 'Contracting Authority referred as "Organismo" or "Entidad adjudicadora"' # I do not write name because it is closer to the name of a person, for example Isabel, than to the name of an institution
-        self.query_tipo = 'type of contract "Objetivo de contrato", "Tipo"'
-        self.query_tramitacion = 'type of procedure "Procedimiento", "Tramitación"'
+        self.query_company = "6. Formalización del contrato:"
+        self.query_amount = '5. Presupuesto base de licitación'
+        self.query_adjudicadora = '1. Entidad adjudicadora:' # I do not write name because it is closer to the name of a person, for example Isabel, than to the name of an institution
+        self.query_tipo = '2. Objeto del contrato:'
+        self.query_tramitacion = '3. Tramitación y procedimiento:'
 
 
-        self.text_company = self.similar_text(self.query_company, n_results=2)
-        self.text_amount = self.similar_text(self.query_amount, n_results=2)
-        self.text_adjudicadora = self.similar_text(self.query_adjudicadora, n_results=2)
-        self.text_tipo = self.similar_text(self.query_tipo, n_results=2)
-        self.text_tramitacion = self.similar_text(self.query_tramitacion, n_results=2)
+        self.text_company = self.similar_text(self.query_company)
+        self.text_amount = self.similar_text(self.query_amount)
+        self.text_adjudicadora = self.similar_text(self.query_adjudicadora)
+        self.text_tipo = self.similar_text(self.query_tipo)
+        self.text_tramitacion = self.similar_text(self.query_tramitacion)
