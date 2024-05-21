@@ -1,11 +1,11 @@
 import requests
 import os
 
-def download_pdf(url: str):
+def download_pdf(url: str, name: str = None):
     base_url = "https://boe.es"
     full_url = base_url + url 
     filename = full_url.split("/")[-1]
-    path = f"pdfs/{filename}"
+    path = f"pdfs{name}/{filename}"
 
     if not os.path.exists('pdfs'):
         os.makedirs('pdfs')
@@ -26,8 +26,8 @@ def download_pdf(url: str):
 
 import json
 
-def download_all_resoluciones():
-    with open("licitaciones.json", "r") as file:
+def download_all_resoluciones(json_file: str):
+    with open(json_file, "r") as file:
         resoluciones = json.load(file)
 
     for _, items in resoluciones.items():
