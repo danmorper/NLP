@@ -63,3 +63,7 @@ licitaciones/pdfs_range_08-2010
 licitaciones/pdfs_range_08-2016
 licitaciones/pdfs_range_08-2018
 licitaciones/pdfs_range_08-2019
+
+boe/output.json
+boe/xml_departamento_id_fecha.json
+boe/xml_id_fecha_departamento.json
